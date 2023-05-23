@@ -1,7 +1,6 @@
 # ReadAI
 
 ## Description
-![Uploading python-original.svg…]()
 
 This is a python web application. You can load multiple books in the form of pdf. This books will be split and stored in chunks. This chunks are converted to Embeddings(high dimensional vectors) which will be stored locally. Spliiting and  storing takes time depending on your device. 
 
