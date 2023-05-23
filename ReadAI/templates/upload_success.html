@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+		body {
+			background-color: #222;
+			color: #fff;
+			text-align: center; /* Align everything to the center */
+		}
+		button {
+  background-color: #fff;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+    </style>
+
+    <title>Upload_Success</title>
+</head>
+<body>
+<div id="logo">
+    <img width="100" src="../static/images/logo.png" alt="Logo">
+</div>
+<h1>ReadAI</h1>
+<p>Press Button to process the pdf.</p>
+<p>Seat back and relax, It might take 10 minutes to load and process pdf.</p>
+<form method="post" action="process">
+    <button type="submit" name="process" value="Start_Chat">Process</button>
+    <button type="submit" name="embedding" value="Show original content">Convert</button>
+<!--    <button type="submit" name="action" value="Regenerate">Regenerate</button>-->
+</form>
+
+ {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

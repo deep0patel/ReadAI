@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+		body {
+			background-color: #222;
+			color: #fff;
+			text-align: center; /* Align everything to the center */
+		}
+		button {
+  background-color: #fff;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+    </style>
+
+    <title>Home</title>
+</head>
+<body>
+<div id="logo">
+    <img width="100" height="auto" src="../static/images/logo.png" alt="Logo">
+</div>
+<h1>ReadAI</h1>
+<p>Enter Your Question</p>
+<form action="/query" method="POST" >
+    <input type="text" name="query">
+    <br>
+    <button type="submit" name="answer" value="clicked">Answer</button>
+    <button type="submit" name="original_content" value="clicked">Show original content</button>
+    <button type="submit" name="regenerate" value="clicked">Regenerate</button>
+</form>
+ {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
