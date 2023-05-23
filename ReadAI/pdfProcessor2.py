@@ -22,7 +22,7 @@ pdf_folder_path = 'ReadAI/static/File/pdf/'
 persist_directory = 'ReadAI/static/File/vectors/'
 
 
-
+# handles file upload
 def pdf_upload(file, message):
     try:
         file_message = []
@@ -45,7 +45,7 @@ def pdf_upload(file, message):
 
         return False
 
-
+# to get all the existing pdfss
 def get_pdf_list(message):
     # get a list of all files in the folder
     files = os.listdir(pdf_folder_path)
@@ -60,6 +60,7 @@ def get_pdf_list(message):
         return pdf_files
 
 
+# to process the pdf
 def pdf_process(file, message):
 
     openai_api_key = session.get('api_key')
@@ -86,19 +87,14 @@ def pdf_process(file, message):
         return False
 
 
-# move
+# loads the vector database as per book
 def get_vectordb(embeddings: OpenAIEmbeddings, directory: str) -> Chroma:
     vectordb = Chroma(persist_directory=directory, embedding_function=embeddings)
     return vectordb
 
 
-# move
-def search(embedding: OpenAIEmbeddings, directory: str, query: str, k: int) -> Chroma:
-    vectordb = get_vectordb(embeddings=embedding, directory=directory)
-    return vectordb.from_documents(query, k)
 
-
-# move
+# answers the question.
 def answer(query):
 
     message = []
@@ -111,6 +107,7 @@ def answer(query):
     return qa.run(query)
 
 
+# to check the api key
 def check_api_key(api_key, message):
     headers = {
         "Authorization": f"Bearer {api_key}",
