@@ -11,8 +11,6 @@ from langchain import OpenAI, VectorDBQA
 from langchain.vectorstores import Chroma
 from openai.embeddings_utils import cosine_similarity, get_embedding
 
-os.environ['OPENAI_API_KEY'] = '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'
-openai_api_key = "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"
 
 # embedding model parameters
 embedding_model = "text-embedding-ada-002"
